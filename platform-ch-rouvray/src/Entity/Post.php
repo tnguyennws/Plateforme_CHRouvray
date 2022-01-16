@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;
+
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
  */
@@ -98,5 +100,10 @@ class Post
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }
